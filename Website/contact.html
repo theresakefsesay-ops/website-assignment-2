@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Sierra Leone Football Agency</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>SLFA</h1>
+                <span>Sierra Leone Football Agency</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="players.html">Players</a></li>
+                <li><a href="matches.html">Matches</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with Sierra Leone Football Agency for inquiries, partnerships, or player representation</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="player_representation">Player Representation</option>
+                                <option value="talent_scouting">Talent Scouting</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="media_inquiry">Media Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                       
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="injury" name="injury">
+                            <label for="injury">This message relates to a player injury concern</label>
+                        </div>
+                       
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+               
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Our Office</h3>
+                            <p>123 Football Street<br>Freetown, Sierra Leone</p>
+                        </div>
+                    </div>
+                   
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Phone Numbers</h3>
+                            <p>+232 25 123 456 (Office)<br>+232 76 789 012 (Mobile)</p>
+                        </div>
+                    </div>
+                   
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email Addresses</h3>
+                            <p>info@slfa.com (General)<br>players@slfa.com (Player Inquiries)<br>scouting@slfa.com (Talent Scouting)</p>
+                        </div>
+                    </div>
+                   
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="far fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Office Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 2:00 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                   
+                    <div class="emergency-contact">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Injury Emergency Contact</h3>
+                        <p>For player injury emergencies outside office hours:</p>
+                        <p class="emergency-phone">+232 99 999 999</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">Find Our Office</h2>
+            <div class="map-placeholder">
+                <i class="fas fa-map-marked-alt"></i>
+                <p>Interactive Map Would Appear Here</p>
+                <p>123 Football Street, Freetown, Sierra Leone</p>
+ </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <h1>SLFA</h1>
+                        <span>Sierra Leone Football Agency</span>
+                    </div>
+                    <p>Connecting Sierra Leone's football talents with opportunities worldwide since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+               
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="players.html">Players</a></li>
+                        <li><a href="matches.html">Matches</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+               
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Football Street, Freetown</li>
+                        <li><i class="fas fa-phone"></i> +232 25 123 456</li>
+                        <li><i class="fas fa-envelope"></i> info@slfa.com</li>
+                    </ul>
+                </div>
+            </div>
+           
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sierra Leone Football Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

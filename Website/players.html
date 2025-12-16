@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Players - Sierra Leone Football Agency</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for player images */
+        .player-image img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .player-card:hover .player-image img {
+            transform: scale(1.05);
+        }
+        
+        .player-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .player-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .player-tag {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .player-tag.transfer {
+            background: #FF9800;
+        }
+        
+        .player-tag.international {
+            background: #2196F3;
+        }
+        
+        .stat-bar {
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            margin: 8px 0;
+            overflow: hidden;
+        }
+        
+        .stat-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            border-radius: 3px;
+        }
+        
+        .stat-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            z-index: 1001;
+        }
+        
+        @media (max-width: 768px) {
+            .section-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .filter-controls {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .players-grid.detailed {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>SLFA</h1>
+                <span>Sierra Leone Football Agency</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="players.html" class="active">Players</a></li>
+                <li><a href="matches.html">Matches</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Players</h1>
+            <p>Discover the talented footballers we represent from Sierra Leone</p>
+            <div class="header-stats">
+                <div class="header-stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Players</span>
+                </div>
+                <div class="header-stat">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Positions</span>
+                </div>
+                <div class="header-stat">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Clubs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Players Section -->
+    <section class="players-section">
+        <div class="container">
+            <div class="section-controls">
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All Players</button>
+                    <button class="filter-btn" data-filter="forward">Forwards</button>
+                    <button class="filter-btn" data-filter="midfielder">Midfielders</button>
+                    <button class="filter-btn" data-filter="defender">Defenders</button>
+                    <button class="filter-btn" data-filter="goalkeeper">Goalkeepers</button>
+                </div>
+               
+                <div class="search-box">
+                    <input type="text" id="playerSearch" placeholder="Search players by name...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+           
+            <div class="players-grid detailed">
+                <!-- Player 1 -->
+                <div class="player-card detailed" data-position="forward" data-name="Alusine Koroma">
+                    <div class="player-image">
+                        <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Alusine Koroma - Forward">
+                        <div class="player-tags">
+                            <span class="player-tag">Top Scorer</span>
+                            <span class="player-tag international">National Team</span>
+                        </div>
+                    </div>
+                    <div class="player-info">
+                        <h3>Alusine Koroma</h3>
+                        <p class="player-position">Forward • Age: 22</p>
+                        <p class="player-club"><i class="fas fa-users"></i> East End Lions</p>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Goals</span>
+                                    <span>18</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Assists</span>
+                                    <span>7</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Matches</span>
+                                    <span>24</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="player-desc">Promising young striker with excellent finishing skills. Top scorer in Sierra Leone Premier League 2024.</p>
+                        <div class="player-skills">
+                            <span class="skill-tag">Finishing</span>
+                            <span class="skill-tag">Speed</span>
+                            <span class="skill-tag">Positioning</span>
+                        </div>
+                        <button class="btn btn-small view-profile" data-player="1">View Profile</button>
+                    </div>
+                </div>
+               
+                <!-- Player 2 -->
+                <div class="player-card detailed" data-position="midfielder" data-name="Samuel Bangura">
+                    <div class="player-image">
+                        <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Samuel Bangura - Midfielder">
+                        <div class="player-tags">
+                            <span class="player-tag">Captain</span>
+                            <span class="player-tag transfer">Transfer Listed</span>
+                        </div>
+                    </div>
+                    <div class="player-info">
+                        <h3>Samuel Bangura</h3>
+                        <p class="player-position">Midfielder • Age: 24</p>
+                        <p class="player-club"><i class="fas fa-users"></i> Bo Rangers</p>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Goals</span>
+                                    <span>8</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 65%"></div>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Assists</span>
+                                    <span>15</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Matches</span>
+                                    <span>28</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="player-desc">Creative playmaker with excellent vision and passing range. Captain of Bo Rangers and key set-piece taker.</p>
+                        <div class="player-skills">
+                            <span class="skill-tag">Passing</span>
+                            <span class="skill-tag">Vision</span>
+                            <span class="skill-tag">Leadership</span>
+                        </div>
+                        <button class="btn btn-small view-profile" data-player="2">View Profile</button>
+                    </div>
+                </div>
+               
+                <!-- Player 3 -->
+                <div class="player-card detailed" data-position="defender" data-name="Ibrahim Sesay">
+                    <div class="player-image">
+                        <img src="https://images.unsplash.com/photo-1577223625818-75bc1f2ac0e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Ibrahim Sesay - Defender">
+                        <div class="player-tags">
+                            <span class="player-tag">Captain</span>
+                            <span class="player-tag international">National Team</span>
+                        </div>
+                    </div>
+                    <div class="player-info">
+                        <h3>Ibrahim Sesay</h3>
+                        <p class="player-position">Defender • Age: 26</p>
+                        <p class="player-club"><i class="fas fa-users"></i> Mighty Blackpool</p>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Clean Sheets</span>
+                                    <span>12</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Tackle Success</span>
+                                    <span>89%</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 89%"></div>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Matches</span>
+                                    <span>30</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="player-desc">Strong and reliable center-back with leadership qualities. Former national team captain with 45 caps.</p>
+                        <div class="player-skills">
+                            <span class="skill-tag">Tackling</span>
+                            <span class="skill-tag">Aerial Duels</span>
+                            <span class="skill-tag">Leadership</span>
+                        </div>
+                        <button class="btn btn-small view-profile" data-player="3">View Profile</button>
+                    </div>
+                </div>
+               
+                <!-- Player 4 -->
+                <div class="player-card detailed" data-position="goalkeeper" data-name="Fatmata Kamara">
+                    <div class="player-image">
+                        <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Fatmata Kamara - Goalkeeper">
+                        <div class="player-tags">
+                            <span class="player-tag">Award Winner</span>
+                            <span class="player-tag international">National Team</span>
+                        </div>
+                    </div>
+                    <div class="player-info">
+                        <h3>Fatmata Kamara</h3>
+                        <p class="player-position">Goalkeeper • Age: 21</p>
+                        <p class="player-club"><i class="fas fa-users"></i> FC Kallon</p>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Clean Sheets</span>
+                                    <span>14</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 93%"></div>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Saves</span>
+                                    <span>92</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Matches</span>
+                                    <span>26</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 87%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="player-desc">Agile goalkeeper with excellent reflexes. Youngest player to win Goalkeeper of the Year award in Sierra Leone.</p>
+                        <div class="player-skills">
+                            <span class="skill-tag">Reflexes</span>
+                            <span class="skill-tag">Distribution</span>
+                            <span class="skill-tag">Command</span>
+                        </div>
+                        <button class="btn btn-small view-profile" data-player="4">View Profile</button>
+                    </div>
+                </div>
+               
+                <!-- Player 5 -->
+                <div class="player-card detailed" data-position="forward" data-name="Mohamed Conteh">
+                    <div class="player-image">
+                        <img src="https://images.unsplash.com/photo-1551952338-3c4c0168d3bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Mohamed Conteh - Forward">
+                        <div class="player-tags">
+                            <span class="player-tag">Fast</span>
+                            <span class="player-tag transfer">Transfer Listed</span>
+                        </div>
+                    </div>
+                    <div class="player-info">
+                        <h3>Mohamed Conteh</h3>
+                        <p class="player-position">Forward • Age: 23</p>
+                        <p class="player-club"><i class="fas fa-users"></i> Old Edwardians</p>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Goals</span>
+                                    <span>15</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Assists</span>
+                                    <span>9</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Matches</span>
+                                    <span>22</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 73%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="player-desc">Fast winger with excellent dribbling skills. Known for his pace and crossing ability. Top dribbler in the league.</p>
+                        <div class="player-skills">
+                            <span class="skill-tag">Dribbling</span>
+                            <span class="skill-tag">Speed</span>
+                            <span class="skill-tag">Crossing</span>
+                        </div>
+                        <button class="btn btn-small view-profile" data-player="5">View Profile</button>
+                    </div>
+                </div>
+               
+                <!-- Player 6 -->
+                <div class="player-card detailed" data-position="midfielder" data-name="Abu Bakarr Kamara">
+                    <div class="player-image">
+                        <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Abu Bakarr Kamara - Midfielder">
+                        <div class="player-tags">
+                            <span class="player-tag">Defensive</span>
+                            <span class="player-tag international">U23 National</span>
+                        </div>
+                    </div>
+                    <div class="player-info">
+                        <h3>Abu Bakarr Kamara</h3>
+                        <p class="player-position">Midfielder • Age: 25</p>
+                        <p class="player-club"><i class="fas fa-users"></i> Diamond Stars</p>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Goals</span>
+                                    <span>6</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 40%"></div>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Assists</span>
+                                    <span>11</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 73%"></div>
+                                </div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">
+                                    <span>Matches</span>
+                                    <span>27</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="player-desc">Defensive midfielder with strong tackling and ball recovery skills. Team's engine room and tactical organizer.</p>
+                        <div class="player-skills">
+                            <span class="skill-tag">Tackling</span>
+                            <span class="skill-tag">Interceptions</span>
+                            <span class="skill-tag">Stamina</span>
+                        </div>
+                        <button class="btn btn-small view-profile" data-player="6">View Profile</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Player Modal -->
+    <div id="playerModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div id="modalContent">
+                <!-- Content will be loaded by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <h1>SLFA</h1>
+                        <span>Sierra Leone Football Agency</span>
+                    </div>
+                    <p>Connecting Sierra Leone's football talents with opportunities worldwide since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+               
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="players.html">Players</a></li>
+                        <li><a href="matches.html">Matches</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+               
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Football Street, Freetown</li>
+                        <li><i class="fas fa-phone"></i> +232 25 123 456</li>
+                        <li><i class="fas fa-envelope"></i> info@slfa.com</li>
+                    </ul>
+                </div>
+            </div>
+           
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sierra Leone Football Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const playerCards = document.querySelectorAll('.player-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Show/hide player cards based on filter
+                    playerCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-position') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.getElementById('playerSearch');
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                playerCards.forEach(card => {
+                    const playerName = card.getAttribute('data-name').toLowerCase();
+                    
+                    if (playerName.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+            
+            // View profile modal
+            const viewProfileBtns = document.querySelectorAll('.view-profile');
+            const playerModal = document.getElementById('playerModal');
+            const modalClose = document.querySelector('.modal-close');
+            const modalContent = document.getElementById('modalContent');
+            
+            // Player data for modals
+            const playersData = {
+                1: {
+                    name: "Alusine Koroma",
+                    position: "Forward",
+                    age: 22,
+                    club: "East End Lions",
+                    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                    stats: {
+                        goals: 18,
+                        assists: 7,
+                        matches: 24,
+                        rating: 8.5
+                    },
+                    description: "Promising young striker with excellent finishing skills. Top scorer in Sierra Leone Premier League 2024. Known for his clinical finishing and intelligent movement off the ball.",
+                    skills: ["Finishing", "Positioning", "Speed", "Ball Control"],
+                    achievements: ["Top Scorer 2024", "Young Player of the Year 2023", "National Team (15 caps)"]
+                },
+                2: {
+                    name: "Samuel Bangura",
+                    position: "Midfielder",
+                    age: 24,
+                    club: "Bo Rangers",
+                    image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                    stats: {
+                        goals: 8,
+                        assists: 15,
+                        matches: 28,
+                        rating: 8.2
+                    },
+                    description: "Creative playmaker with excellent vision and passing range. Captain of Bo Rangers and key set-piece taker. Known for his leadership on and off the field.",
+                    skills: ["Passing", "Vision", "Leadership", "Set Pieces"],
+                    achievements: ["Team Captain", "Most Assists 2024", "Player of the Month (x3)"]
+                }
+            };
+            
+            // Open modal when view profile is clicked
+            viewProfileBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const playerId = this.getAttribute('data-player');
+                    const player = playersData[playerId];
+                    
+                    if (player) {
+                        modalContent.innerHTML = `
+                            <div class="modal-player-header">
+                                <div class="modal-player-image">
+                                    <img src="${player.image}" alt="${player.name}">
+                                </div>
+                                <div class="modal-player-info">
+                                    <h2>${player.name}</h2>
+                                    <p class="modal-position">${player.position} • ${player.age} years old</p>
+                                    <p class="modal-club"><i class="fas fa-users"></i> ${player.club}</p>
+                                    <div class="modal-stats">
+                                        <div class="modal-stat">
+                                            <span class="modal-stat-value">${player.stats.rating}</span>
+                                            <span class="modal-stat-label">Rating</span>
+                                        </div>
+                                        <div class="modal-stat">
+                                            <span class="modal-stat-value">${player.stats.goals}</span>
+                                            <span class="modal-stat-label">Goals</span>
+                                        </div>
+                                        <div class="modal-stat">
+                                            <span class="modal-stat-value">${player.stats.assists}</span>
+                                            <span class="modal-stat-label">Assists</span>
+                                        </div>
+                                        <div class="modal-stat">
+                                            <span class="modal-stat-value">${player.stats.matches}</span>
+                                            <span class="modal-stat-label">Matches</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-player-body">
+                                <div class="modal-section">
+                                    <h3>Player Description</h3>
+                                    <p>${player.description}</p>
+                                </div>
+                                <div class="modal-section">
+                                    <h3>Key Skills</h3>
+                                    <div class="modal-skills">
+                                        ${player.skills.map(skill => `<span class="modal-skill-tag">${skill}</span>`).join('')}
+                                    </div>
+                                </div>
+                                <div class="modal-section">
+                                    <h3>Achievements</h3>
+                                    <ul class="modal-achievements">
+                                        ${player.achievements.map(achievement => `<li><i class="fas fa-trophy"></i> ${achievement}</li>`).join('')}
+                                    </ul>
+                                </div>
+                                <div class="modal-section">
+                                    <h3>Contact Agent</h3>
+                                    <p>Interested in ${player.name}? Contact our agent for transfer inquiries.</p>
+                                    <a href="contact.html?player=${player.name}" class="btn btn-primary">Contact Agent</a>
+                                </div>
+                            </div>
+                        `;
+                        
+                        playerModal.style.display = 'flex';
+                    }
+                });
+            });
+            
+            // Close modal
+            modalClose.addEventListener('click', function() {
+                playerModal.style.display = 'none';
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === playerModal) {
+                    playerModal.style.display = 'none';
+                }
+            });
+            
+            // Mobile menu toggle
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

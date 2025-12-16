@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matches & Fixtures - Sierra Leone Football Agency</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+</head>
+<style>
+    .team-logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+</style>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">
+            <h1>SLFA</h1>
+            <span>Sierra Leone Football Agency</span>
+        </div>
+        <div class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="players.html">Players</a></li>
+            <li><a href="matches.html" class="active">Matches</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>Matches & Fixtures</h1>
+        <p>Follow the latest matches, results, and upcoming fixtures for our players</p>
+    </div>
+</section>
+
+<!-- Matches Section -->
+<section class="matches-section">
+    <div class="container">
+
+        <!-- Tabs -->
+        <div class="section-tabs">
+            <button class="tab-btn active" data-tab="upcoming">Upcoming Matches</button>
+            <button class="tab-btn" data-tab="results">Recent Results</button>
+            <button class="tab-btn" data-tab="fixtures">Full Fixture List</button>
+        </div>
+
+        <!-- Upcoming Matches -->
+        <div class="tab-content active" id="upcoming">
+            <div class="matches-grid">
+
+                <!-- Match 1 -->
+                <div class="match-card">
+                    <div class="match-date">
+                        <span class="date-day">15</span>
+                        <span class="date-month">NOV</span>
+                        <span class="date-year">2025</span>
+                    </div>
+
+                    <div class="match-teams">
+                        <div class="team">
+                            <div class="team-logo">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7dZbFzE2XkBEKm20zyFgx-NYliUu5IPkwcw&s" alt="East End Lions">
+                            </div>
+                            <div class="team-name">East End Lions</div>
+                        </div>
+
+                        <div class="vs">VS</div>
+
+                        <div class="team">
+                            <div class="team-logo">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrVrNMztrFsYfuk2CSR-O-AlQYAveetOqEdA&s" alt="Bo Rangers">
+                            </div>
+                            <div class="team-name">Bo Rangers</div>
+                        </div>
+                    </div>
+
+                    <div class="match-info">
+                        <p><i class="fas fa-map-marker-alt"></i> National Stadium, Freetown</p>
+                        <p><i class="far fa-clock"></i> 15:00 GMT</p>
+                        <p><i class="fas fa-trophy"></i> Sierra Leone Premier League</p>
+                    </div>
+
+                    <div class="match-players">
+                        <h4>Our Players Involved:</h4>
+                        <p>Alusine Koroma (East End Lions), Samuel Bangura (Bo Rangers)</p>
+                    </div>
+                </div>
+
+                <!-- Match 2 -->
+                <div class="match-card">
+                    <div class="match-date">
+                        <span class="date-day">22</span>
+                        <span class="date-month">NOV</span>
+                        <span class="date-year">2025</span>
+                    </div>
+
+                    <div class="match-teams">
+                        <div class="team">
+                            <div class="team-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/en/f/f4/Mighty_Blackpool.jpg" alt="Mighty Blackpool">
+                            </div>
+                            <div class="team-name">Mighty Blackpool</div>
+                        </div>
+
+                        <div class="vs">VS</div>
+
+                        <div class="team">
+                            <div class="team-logo">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCuBK4vpFX3sVrxO31NJ8AXROB-OSXjP6HGA&s" alt="FC Kallon">
+                            </div>
+                            <div class="team-name">FC Kallon</div>
+                        </div>
+                    </div>
+
+                    <div class="match-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Siaka Stevens Stadium</p>
+                        <p><i class="far fa-clock"></i> 17:00 GMT</p>
+                        <p><i class="fas fa-trophy"></i> Sierra Leone Premier League</p>
+                    </div>
+
+                    <div class="match-players">
+                        <h4>Our Players Involved:</h4>
+                        <p>Ibrahim Sesay (Mighty Blackpool), Fatmata Kamara (FC Kallon)</p>
+                    </div>
+                </div>
+
+                <!-- Match 3 -->
+                <div class="match-card">
+                    <div class="match-date">
+                        <span class="date-day">29</span>
+                        <span class="date-month">NOV</span>
+                        <span class="date-year">2025</span>
+                    </div>
+
+                    <div class="match-teams">
+                        <div class="team">
+                            <div class="team-logo">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRijI1i-AYs4DTXCej1UyCGxSl5V1dHBimx-w&s" alt="Old Edwardians">
+                            </div>
+                            <div class="team-name">Old Edwardians</div>
+                        </div>
+
+                        <div class="vs">VS</div>
+
+                        <div class="team">
+                            <div class="team-logo">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT87Hr9C9S5nOagjlDpHHI5uCUHm_-qepp-2g&s" alt="Diamond Stars">
+                            </div>
+                            <div class="team-name">Diamond Stars</div>
+                        </div>
+                    </div>
+
+                    <div class="match-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Bo Stadium, Bo</p>
+                        <p><i class="far fa-clock"></i> 16:30 GMT</p>
+                        <p><i class="fas fa-trophy"></i> Sierra Leone Cup</p>
+                    </div>
+
+                    <div class="match-players">
+                        <h4>Our Players Involved:</h4>
+                        <p>Mohamed Conteh, Abu Bakarr Kamara</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 Sierra Leone Football Agency. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

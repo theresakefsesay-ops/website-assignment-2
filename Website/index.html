@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sierra Leone Football Agency - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for new image elements */
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .news-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .player-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .news-card, .player-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .news-card:hover, .player-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero .container {
+                flex-direction: column;
+            }
+            
+            .hero-image {
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>SLFA</h1>
+                <span>Sierra Leone Football Agency</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="players.html">Players</a></li>
+                <li><a href="matches.html">Matches</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>CONNECTING LOCAL TALENTS WITH GLOBAL OPPORTUNITIES</h2>
+                <p>We represent the finest football talents from Sierra Leone, helping them achieve their dreams on the world stage. With over a decade of experience, we've successfully placed players in top leagues across Africa, Europe, and Asia.</p>
+                <div class="hero-buttons">
+                    <a href="players.html" class="btn btn-primary">View Players</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Agency</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>50+</h3>
+                        <p>Players Represented</p>
+                    </div>
+                    <div class="stat">
+                        <h3>15+</h3>
+                        <p>Countries</p>
+                    </div>
+                    <div class="stat">
+                        <h3>100+</h3>
+                        <p>Successful Transfers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="African football player celebrating a goal">
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section">
+        <div class="container">
+            <h2 class="section-title">Latest News & Highlights</h2>
+            <p class="section-subtitle">Stay updated with player transfers and highlights from our agency</p>
+           
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Football player signing contract">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">
+                            <i class="far fa-calendar"></i> March 15, 2025
+                        </div>
+                        <h3>Player Transfer Completed</h3>
+                        <p>Mohamed Kamara moves to European club after successful negotiation by our agency. The 22-year-old striker has signed a 3-year contract with Portuguese side SC Braga.</p>
+                        <a href="#" class="news-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+               
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Football trophy on display">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">
+                            <i class="far fa-calendar"></i> March 10, 2025
+                        </div>
+                        <h3>Awards Night Success</h3>
+                        <p>Three of our players nominated for national football awards ceremony. Alusine Koroma won Young Player of the Year, marking a historic achievement for our agency.</p>
+                        <a href="#" class="news-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+               
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Group of young football players">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">
+                            <i class="far fa-calendar"></i> March 5, 2025
+                        </div>
+                        <h3>New Talent Signings</h3>
+                        <p>We welcome five new promising talents to our agency this month. Our scouts identified these players during the National Youth Championship in Freetown.</p>
+                        <a href="#" class="news-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Players -->
+    <section class="featured-players">
+        <div class="container">
+            <h2 class="section-title">Meet Our Most Promising Talents</h2>
+            <p class="section-subtitle">Representing the future of Sierra Leone football</p>
+           
+            <div class="players-grid">
+                <div class="player-card">
+                    <div class="player-image">
+                        <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Alusine Koroma, forward player">
+                    </div>
+                    <div class="player-info">
+                        <h3>Alusine Koroma</h3>
+                        <p class="player-position">Forward</p>
+                        <p class="player-age">Age: 22</p>
+                        <p class="player-club">Current Club: East End Lions</p>
+                        <div class="player-stats">
+                            <span class="stat-label">Goals this season:</span>
+                            <span class="stat-value">18</span>
+                        </div>
+                        <a href="players.html#alusine" class="btn-player-profile">View Profile</a>
+                    </div>
+                </div>
+               
+                <div class="player-card">
+                    <div class="player-image">
+                        <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Samuel Bangura, midfielder">
+                    </div>
+                    <div class="player-info">
+                        <h3>Samuel Bangura</h3>
+                        <p class="player-position">Midfielder</p>
+                        <p class="player-age">Age: 24</p>
+                        <p class="player-club">Current Club: Bo Rangers</p>
+                        <div class="player-stats">
+                            <span class="stat-label">Assists this season:</span>
+                            <span class="stat-value">12</span>
+                        </div>
+                        <a href="players.html#samuel" class="btn-player-profile">View Profile</a>
+                    </div>
+                </div>
+               
+                <div class="player-card">
+                    <div class="player-image">
+                        <img src="https://images.unsplash.com/photo-1577223625818-75bc1f2ac0e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ibrahim Sesay, defender">
+                    </div>
+                    <div class="player-info">
+                        <h3>Ibrahim Sesay</h3>
+                        <p class="player-position">Defender</p>
+                        <p class="player-age">Age: 26</p>
+                        <p class="player-club">Current Club: Mighty Blackpool</p>
+                        <div class="player-stats">
+                            <span class="stat-label">Clean sheets:</span>
+                            <span class="stat-value">15</span>
+                        </div>
+                        <a href="players.html#ibrahim" class="btn-player-profile">View Profile</a>
+                    </div>
+                </div>
+               
+                <div class="player-card">
+                    <div class="player-image">
+                        <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fatmata Kamara, goalkeeper">
+                    </div>
+                    <div class="player-info">
+                        <h3>Fatmata Kamara</h3>
+                        <p class="player-position">Goalkeeper</p>
+                        <p class="player-age">Age: 21</p>
+                        <p class="player-club">Current Club: FC Kallon</p>
+                        <div class="player-stats">
+                            <span class="stat-label">Saves this season:</span>
+                            <span class="stat-value">87</span>
+                        </div>
+                        <a href="players.html#fatmata" class="btn-player-profile">View Profile</a>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="text-center">
+                <a href="players.html" class="btn btn-primary">View All Players</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Players Say About Us</h2>
+            <p class="section-subtitle">Success stories from our represented talents</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"SLFA changed my life. They secured my first professional contract in Europe and provided continuous support throughout my career."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Mohamed Turay">
+                        <div>
+                            <h4>Mohamed Turay</h4>
+                            <p>Forward, FK Partizan</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The agency's professionalism and network opened doors I never thought possible. They truly care about player development."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Isha Conteh">
+                        <div>
+                            <h4>Isha Conteh</h4>
+                            <p>Midfielder, Al-Hilal Omdurman</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <h1>SLFA</h1>
+                        <span>Sierra Leone Football Agency</span>
+                    </div>
+                    <p>Connecting Sierra Leone's football talents with opportunities worldwide since 2010. We are committed to developing and promoting the best footballers from our nation.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+               
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="players.html">Players</a></li>
+                        <li><a href="matches.html">Matches</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+               
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Football Street, Freetown, Sierra Leone</li>
+                        <li><i class="fas fa-phone"></i> +232 25 123 456</li>
+                        <li><i class="fas fa-envelope"></i> info@slfa.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on player transfers and agency news.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+           
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sierra Leone Football Agency. All rights reserved. | Designed with passion for Sierra Leone football</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Additional JavaScript for enhanced functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Newsletter form submission
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    alert(`Thank you for subscribing with ${email}! You'll receive our latest updates soon.`);
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
